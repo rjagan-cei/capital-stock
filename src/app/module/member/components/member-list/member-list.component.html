@@ -1,0 +1,56 @@
+<!-- Title group  -->
+<mat-toolbar>
+  <span>Members</span>
+</mat-toolbar>
+  
+  <p *ngIf="members?.length <= 0" class="no-data">No Records Found!</p>
+  
+  <div class="container" *ngIf="members?.length > 0">
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource">
+        <ng-container matColumnDef="memberID">
+          <th mat-header-cell *matHeaderCellDef> Member ID </th>
+          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="memberName">
+          <th mat-header-cell *matHeaderCellDef> Member Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="stockMembershipDate">
+          <th mat-header-cell *matHeaderCellDef> Stock Membership Date  </th>
+          <td mat-cell *matCellDef="let element"> {{element.stockMembershipDate | date: 'MM/dd/yyyy'}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="dateOfIncorporation">
+          <th mat-header-cell *matHeaderCellDef> Financial Data Date </th>
+          <td mat-cell *matCellDef="let element"> {{element.dateOfIncorporation | date: 'MM/dd/yyyy'}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="totalAssets">
+          <th mat-header-cell *matHeaderCellDef> Total Assets </th>
+          <td mat-cell *matCellDef="let element"> {{element.totalAssets | currency}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef> Status </th>
+          <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef> Action </th>
+          <td mat-cell *matCellDef="let element; let i = index;">
+            <button mat-mini-fab id="edit-btn" color="primary" class="push-right"
+              [routerLink]="['/edit-member/', element.id]"><mat-icon>edit</mat-icon></button>
+            <button mat-mini-fab id="del-btn" color="warn" (click)="deleteMember(i, element)"><mat-icon>delete</mat-icon></button>
+          </td>
+        </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+  
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+  </div>

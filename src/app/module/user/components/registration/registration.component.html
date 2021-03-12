@@ -1,0 +1,53 @@
+<!-- Title group  -->
+<mat-toolbar>
+    <span>User Registration</span>
+</mat-toolbar>
+
+<!-- Form -->
+<mat-card>
+    <mat-card-content>
+        <form class="my-form" [formGroup]="registrationForm" (ngSubmit)="submitRegistrationForm()" #resetRegistrationForm="ngForm" novalidate>
+            <!-- Name -->
+            <mat-form-field class="full-width">
+                <input matInput placeholder="Full Name" id="name" formControlName="name">
+                <mat-error *ngIf="handleError('name', 'required')">
+                    Please provide your <strong>Full Name</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <!-- Email -->
+            <mat-form-field class="full-width">
+                <input matInput placeholder="Email" type="email" id="email" formControlName="email">
+                <mat-error *ngIf="handleError('email', 'required')">
+                    Please provide your <strong>Email</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <!-- password -->
+            <mat-form-field class="full-width">
+                <input matInput placeholder="Password" type="password" id="password" formControlName="password">
+                <mat-error *ngIf="handleError('password', 'required')">
+                    Please provide your <strong>Password</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <!-- DOB -->
+            <mat-form-field class="full-width">
+                <input matInput readonly [matDatepicker]="dobPicker" id="dob" placeholder="Date of Birth"
+                    formControlName="dob" (dateChange)="formatDate('dob', $event)">
+                <mat-datepicker-toggle matSuffix [for]="dobPicker"></mat-datepicker-toggle>
+                <mat-datepicker #dobPicker></mat-datepicker>
+                <mat-error *ngIf="handleError('dob', 'required')">
+                    DOB is required
+                </mat-error>
+            </mat-form-field>
+
+            <!-- Submit & Reset -->
+            <mat-card-actions>
+                <button mat-flat-button color="primary">Submit</button>
+                <span class="button-spacer"></span>
+                <button mat-flat-button color="warn" (click)="this.resetForm.reset()">Reset</button>
+            </mat-card-actions>
+        </form>
+    </mat-card-content>
+</mat-card>

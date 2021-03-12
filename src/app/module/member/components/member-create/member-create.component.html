@@ -1,0 +1,70 @@
+<!-- Title group  -->
+<mat-toolbar>
+  <span>Create Member</span>
+</mat-toolbar>
+
+<!-- Form -->
+<mat-card>
+  <mat-card-content>
+    <form class="my-form" [formGroup]="memberForm" (ngSubmit)="submitMemberForm()" #resetMemberForm="ngForm" novalidate>
+      <!-- Name -->
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Member Name" id="name" formControlName="name">
+        <mat-error *ngIf="handleError('name', 'required')">
+          Please provide a <strong>member name</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Status -->
+      <mat-form-field class="full-width">
+        <mat-label>Member Status</mat-label>
+        <mat-select id="status" formControlName="status">
+          <mat-option [value]="statusArray.name" *ngFor="let statusArray of StatusArray">{{statusArray.name}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="handleError('status', 'required')">
+          Please select a <strong>member status</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Total Assets -->
+      <mat-form-field class="full-width">
+        <mat-label>Total Assets</mat-label>
+        <input matInput currencyMask placeholder="Total Assets" id="totalAssets" formControlName="totalAssets"
+          id="mat-currency">
+        <mat-error *ngIf="handleError('totalAssets', 'required')">
+          Please provide <strong>Total Assets</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Financial Data Date -->
+      <mat-form-field class="full-width">
+        <input matInput readonly [matDatepicker]="dateOfIncorpPicker" id="dateOfIncorporation"
+          placeholder="Financial Data Date" formControlName="dateOfIncorporation"
+          (dateChange)="formatDate('dateOfIncorporation', $event)">
+        <mat-datepicker-toggle matSuffix [for]="dateOfIncorpPicker"></mat-datepicker-toggle>
+        <mat-datepicker #dateOfIncorpPicker></mat-datepicker>
+        <mat-error *ngIf="handleError('dateOfIncorporation', 'required')">
+          Financial Data Date is required
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Stock Membership Date -->
+      <mat-form-field class="full-width">
+        <input matInput readonly [matDatepicker]="stockMembPicker" id="stockMembershipDate"
+          placeholder="Stock Membership Date" formControlName="stockMembershipDate"
+          (dateChange)="formatDate('stockMembershipDate', $event)">
+        <mat-datepicker-toggle matSuffix [for]="stockMembPicker"></mat-datepicker-toggle>
+        <mat-datepicker #stockMembPicker></mat-datepicker>
+        <mat-error *ngIf="handleError('stockMembershipDate', 'required')">
+          Stock Membership Date is required
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Submit & Reset -->
+      <mat-card-actions>
+        <button mat-flat-button color="primary">Submit</button>
+      </mat-card-actions>
+    </form>
+  </mat-card-content>
+</mat-card>

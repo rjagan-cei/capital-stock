@@ -1,0 +1,35 @@
+<!-- Title group  -->
+<mat-toolbar>
+    <span>User Login</span>
+</mat-toolbar>
+
+<!-- Form -->
+<mat-card>
+    <mat-card-content>
+        <form class="my-form" [formGroup]="loginForm" (ngSubmit)="submitLoginForm()" #resetLoginForm="ngForm" novalidate>
+
+            <!-- Email -->
+            <mat-form-field class="full-width">
+                <input matInput placeholder="Email" type="email" id="email" formControlName="email">
+                <mat-error *ngIf="handleError('email', 'required')">
+                    Please provide your <strong>Email</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <!-- password -->
+            <mat-form-field class="full-width">
+                <input matInput placeholder="Password" type="password" id="password" formControlName="password">
+                <mat-error *ngIf="handleError('password', 'required')">
+                    Please provide your <strong>Password</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <!-- Submit & Reset -->
+            <mat-card-actions>
+                <button mat-flat-button color="primary">Login</button>
+                <!--<span class="button-spacer"></span>
+                <button mat-flat-button color="warn" routerLink="/register">Register</button>-->
+            </mat-card-actions>
+        </form>
+    </mat-card-content>
+</mat-card>

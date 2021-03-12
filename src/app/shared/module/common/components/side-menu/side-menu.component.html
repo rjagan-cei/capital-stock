@@ -1,0 +1,8 @@
+<mat-nav-list>
+  <a mat-list-item routerLinkActive="active" [routerLink]="['/list-members']" (click)="onSidenavClose()">
+    <mat-icon>content_paste</mat-icon> <span class="nav-caption">View Members</span>
+  </a>
+  <a mat-list-item routerLinkActive="active" [routerLink]="['/create-member']" (click)="onSidenavClose()">
+    <mat-icon>person</mat-icon> <span class="nav-caption">Add Member</span>
+  </a>
+</mat-nav-list>
