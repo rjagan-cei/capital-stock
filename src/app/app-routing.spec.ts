@@ -24,6 +24,7 @@ import { FooterComponent } from './shared/module/common/components/footer/footer
 import { HeaderComponent } from './shared/module/common/components/header/header.component';
 import { AngularMaterialModule } from './shared/module/material/material.module';
 import { SideMenuComponent } from './shared/module/common/components/side-menu/side-menu.component';
+import { MemberRoutingModule } from './module/member/member-routing.module';
 
 
 describe('Verify All App Routes', () => {
@@ -36,7 +37,7 @@ describe('Verify All App Routes', () => {
             imports: [
                 FormsModule,
                 ReactiveFormsModule,
-                RouterTestingModule.withRoutes(routes),
+                RouterTestingModule.withRoutes(routes), MemberRoutingModule,
                 HttpClientTestingModule,
                 AngularMaterialModule,
                 BrowserAnimationsModule

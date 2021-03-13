@@ -4,7 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
 import { routes } from 'src/app/app-routing.module';
-import { AngularMaterialModule } from 'src/app/material.module';
+import { AngularMaterialModule } from 'src/app/shared/module/material/material.module';
 
 import { RegistrationComponent } from './registration.component';
 

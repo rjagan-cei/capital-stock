@@ -1,8 +1,9 @@
 import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { MemberService, memberBasePath } from './member.service';
-import { Member } from '../components/shared/model/member';
 import { of, empty } from 'rxjs';
+import { Member } from 'src/app/shared/model/member';
+import { memberBasePath } from 'src/environments/environment';
+import { MemberService } from './member.service';
 
 describe('MemberService', () => {
   let service: MemberService;
@@ -22,7 +23,6 @@ describe('MemberService', () => {
     expect(service).toBeTruthy();
     expect(httpMock).toBeTruthy();
   });
-
 
   // Create member..
   it('createMember() should POST and return data', () => {

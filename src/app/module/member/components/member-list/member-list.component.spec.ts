@@ -1,15 +1,13 @@
 import { TestBed, ComponentFixture } from '@angular/core/testing';
-
-import { MemberService } from 'src/app/services/member.service';
-import { AngularMaterialModule } from 'src/app/material.module';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { of, empty } from 'rxjs';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { MemberListComponent } from './member-list.component';
 import { By } from '@angular/platform-browser';
 import { MatTableDataSource } from '@angular/material/table';
-import { Member } from 'src/app/components/shared/model/member';
-
+import { Member } from 'src/app/shared/model/member';
+import { AngularMaterialModule } from 'src/app/shared/module/material/material.module';
+import { MemberService } from '../../service/member.service';
 
 export let mockedMember: Member[] = [{
   id: 1,

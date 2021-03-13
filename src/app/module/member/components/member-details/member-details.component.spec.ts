@@ -1,16 +1,16 @@
 import { TestBed, ComponentFixture } from '@angular/core/testing';
 
-import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
-import { MemberService } from 'src/app/services/member.service';
-import { AngularMaterialModule } from 'src/app/material.module';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { routes } from 'src/app/app-routing.module';
 import { empty, of } from 'rxjs';
 import { MemberDetailsComponent } from './member-details.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { By } from '@angular/platform-browser';
+import { AngularMaterialModule } from 'src/app/shared/module/material/material.module';
+import { MemberService } from '../../service/member.service';
 
 describe('Update Member Form', () => {
   let service: MemberService;

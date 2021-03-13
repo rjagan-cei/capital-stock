@@ -3,12 +3,12 @@ import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { MemberCreateComponent } from './member-create.component';
 import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
-import { AngularMaterialModule } from 'src/app/material.module';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { routes } from 'src/app/app-routing.module';
-import { Member } from '../../../shared/model/member';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { By } from '@angular/platform-browser';
+import { Member } from 'src/app/shared/model/member';
+import { AngularMaterialModule } from 'src/app/shared/module/material/material.module';
 
 export let mockedMember: Member[] = [{
   id: 1,

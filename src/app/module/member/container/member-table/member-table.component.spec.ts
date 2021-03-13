@@ -3,11 +3,11 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
-import { empty, Observable, of, throwError } from 'rxjs';
+import { empty, of, throwError } from 'rxjs';
 import { routes } from 'src/app/app-routing.module';
-import { Member } from 'src/app/components/shared/model/member';
-import { AngularMaterialModule } from 'src/app/material.module';
-import { MemberService } from 'src/app/services/member.service';
+import { Member } from 'src/app/shared/model/member';
+import { AngularMaterialModule } from 'src/app/shared/module/material/material.module';
+import { MemberService } from '../../service/member.service';
 
 import { MemberTableComponent } from './member-table.component';
 

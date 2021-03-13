@@ -6,9 +6,9 @@ import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { of, throwError } from 'rxjs';
 import { routes } from 'src/app/app-routing.module';
-import { AngularMaterialModule } from 'src/app/material.module';
-import { MemberService } from 'src/app/services/member.service';
+import { AngularMaterialModule } from 'src/app/shared/module/material/material.module';
 import { mockedMember } from '../../components/member-create/member-create.component.spec';
+import { MemberService } from '../../service/member.service';
 
 import { MemberAddComponent } from './member-add.component';
 

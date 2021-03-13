@@ -1,6 +1,7 @@
 import { Base } from "./base";
 
-export class Member extends Base {
+export class Member {
+    id: Number;
     name: String;
     status: String;
     dateOfIncorporation: Date;

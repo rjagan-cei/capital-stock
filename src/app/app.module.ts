@@ -14,10 +14,12 @@ import { SideMenuComponent } from './shared/module/common/components/side-menu/s
 import { CurrencyMaskModule } from "ng2-currency-mask";
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { NumericDirective } from './core/directives/numeric.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
+    NumericDirective,
     HeaderComponent,
     SideMenuComponent,
     FooterComponent,
