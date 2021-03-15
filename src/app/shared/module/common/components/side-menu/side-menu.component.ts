@@ -1,4 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-side-menu',
@@ -8,6 +9,11 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class SideMenuComponent implements OnInit {
 
   @Output() sidenavClose = new EventEmitter();
+  @ViewChild('sidenav') sidenav: MatSidenav;
+  isExpanded = true;
+  showSubmenu: boolean = false;
+  isShowing = false;
+  showSubSubMenu: boolean = false;
  
   constructor() { }
  
@@ -16,6 +22,18 @@ export class SideMenuComponent implements OnInit {
  
   public onSidenavClose = () => {
     this.sidenavClose.emit();
+  }
+
+  mouseenter() {
+    if (!this.isExpanded) {
+      this.isShowing = true;
+    }
+  }
+
+  mouseleave() {
+    if (!this.isExpanded) {
+      this.isShowing = false;
+    }
   }
 
 }

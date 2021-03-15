@@ -1,8 +1,16 @@
 <mat-nav-list>
-  <a mat-list-item routerLinkActive="active" [routerLink]="['/list-members']" (click)="onSidenavClose()">
-    <mat-icon>content_paste</mat-icon> <span class="nav-caption">View Members</span>
-  </a>
-  <a mat-list-item routerLinkActive="active" [routerLink]="['/create-member']" (click)="onSidenavClose()">
-    <mat-icon>person</mat-icon> <span class="nav-caption">Add Member</span>
-  </a>
+  <mat-list-item (click)="showSubmenu = !showSubmenu" class="parent">
+    <span class="full-width" *ngIf="isExpanded || isShowing">Member Profile</span>
+    <mat-icon mat-list-icon>account_balance</mat-icon>
+    <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubmenu}" *ngIf="isExpanded || isShowing"> expand_more
+    </mat-icon>
+  </mat-list-item>
+  <div class="submenu" [ngClass]="{'expanded' : showSubmenu}" *ngIf="isShowing || isExpanded">
+    <a mat-list-item routerLinkActive="active" [routerLink]="['/list-members']" (click)="onSidenavClose()">
+      <mat-icon>content_paste</mat-icon> <span class="nav-caption">View Members</span>
+    </a>
+    <a mat-list-item routerLinkActive="active" [routerLink]="['/create-member']" (click)="onSidenavClose()">
+      <mat-icon>person</mat-icon> <span class="nav-caption">Add Member</span>
+    </a>
+  </div>
 </mat-nav-list>
