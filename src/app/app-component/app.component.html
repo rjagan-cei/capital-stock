@@ -1,12 +1,15 @@
-<mat-sidenav-container>
-  <mat-sidenav #sidenav role="navigation">
-    <app-side-menu (sidenavClose)="sidenav.close()"></app-side-menu>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <app-header (sidenavToggle)="sidenav.toggle()"></app-header>
-    <main>
-      <router-outlet></router-outlet>
-    </main>
-  </mat-sidenav-content>
-</mat-sidenav-container>
-<app-footer></app-footer>
+<app-layout>
+  <mat-sidenav-container class="example-container">
+    <!-- Sidebar Navigation component -->
+    <mat-sidenav #sidenav role="navigation">
+      <app-side-menu (sidenavClose)="sidenav.close()"></app-side-menu>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <app-header (sidenavToggle)="sidenav.toggle()"></app-header>
+      <main>
+        <router-outlet></router-outlet>
+      </main>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  <app-footer></app-footer>
+</app-layout>
