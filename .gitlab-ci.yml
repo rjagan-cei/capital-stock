@@ -1,0 +1,46 @@
+image: node:latest
+
+cache:
+  paths:
+    - node_modules/
+
+stages:
+  - dependencies
+  - build
+  - test
+  - deploy
+  - exit
+
+# dependencies job
+dependencies: 
+  stage: dependencies
+  script: 
+    - "pm2 stop capital-stock"
+    - "rm -r node_modules"   
+    - "rm ./package-lock.json"
+    - "npm install"
+
+# build job
+build: 
+  stage: build
+  script: 
+    - "ng build --prod"
+    
+# test job
+ test:karma:
+   stage: test
+   allow_failure: false
+   script:
+     - "ng test --progress false --watch false"
+
+# deploy job   
+deploy: 
+  stage: deploy
+  script: 
+    - "pm2 start 'ng serve --host 0.0.0.0 --port 4200' --name capital-stock"
+
+# Exit job
+exit:
+  stage: exit
+  script:
+    - echo Exit pipeline, app deployed successfully ****
