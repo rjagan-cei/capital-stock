@@ -37,9 +37,6 @@ import { NumericDirective } from './core/directives/numeric.directive';
     CurrencyMaskModule,
     FlexLayoutModule
   ],
-  exports: [
-    AngularMaterialModule
-  ],
   providers: [{ provide: MAT_DATE_LOCALE, useValue: 'en-GB' }],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

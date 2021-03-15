@@ -37,9 +37,6 @@ import { MemberRoutingModule } from './member-routing.module';
     CurrencyMaskModule,
     FlexLayoutModule
   ],
-  exports: [
-    AngularMaterialModule
-  ],
   providers: [MemberService, { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
