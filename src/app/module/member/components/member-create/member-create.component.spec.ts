@@ -7,19 +7,9 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { routes } from 'src/app/app-routing.module';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { By } from '@angular/platform-browser';
-import { Member } from 'src/app/shared/model/member';
 import { AngularMaterialModule } from 'src/app/shared/module/material/material.module';
 
-export let mockedMember: Member[] = [{
-  id: 1,
-  name: 'testMember1',
-  status: 'Active',
-  dateOfIncorporation: new Date(2021, 1, 15),
-  stockMembershipDate: new Date(2021, 2, 15),
-  totalAssets: 12345678.00
-}];
-
-describe('Create Member Form', () => {
+describe('create member form - parent/smart component', () => {
   let component: MemberCreateComponent;
   let fixture: ComponentFixture<MemberCreateComponent>;
   const formBuilder: FormBuilder = new FormBuilder();
@@ -60,7 +50,7 @@ describe('Create Member Form', () => {
 
   it('should have called submit emit', async () => {
     spyOn(window, 'confirm').and.returnValue(true);
-    spyOn(component.submit, 'emit');
+    spyOn(component.submit, 'emit').and.callThrough();
     fixture.detectChanges();
     component.submitMemberForm();
     expect(component.submit.emit).toHaveBeenCalled();

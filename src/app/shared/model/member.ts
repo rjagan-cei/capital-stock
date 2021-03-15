@@ -8,3 +8,13 @@ export class Member {
     stockMembershipDate: Date;
     totalAssets: Number;
 }
+
+
+export let mockedMember: Member[] = [{
+    id: 1,
+    name: 'testMember1',
+    status: 'Active',
+    dateOfIncorporation: new Date(2021, 1, 15),
+    stockMembershipDate: new Date(2021, 2, 15),
+    totalAssets: 12345678.00
+}];

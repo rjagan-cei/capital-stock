@@ -5,22 +5,12 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
 import { empty, of, throwError } from 'rxjs';
 import { routes } from 'src/app/app-routing.module';
-import { Member } from 'src/app/shared/model/member';
 import { AngularMaterialModule } from 'src/app/shared/module/material/material.module';
 import { MemberService } from '../../service/member.service';
-
 import { MemberTableComponent } from './member-table.component';
+import { mockedMember } from 'src/app/shared/model/member';
 
-export let mockedMember: Member[] = [{
-  id: 1,
-  name: 'testMember1',
-  status: 'Active',
-  dateOfIncorporation: new Date(2021, 1, 15),
-  stockMembershipDate: new Date(2021, 2, 15),
-  totalAssets: 12345678.00
-}];
-
-describe('MemberTableComponent', () => {
+describe('list members - child/presentation component', () => {
   let service: MemberService;
   let component: MemberTableComponent;
   let fixture: ComponentFixture<MemberTableComponent>;

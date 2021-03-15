@@ -6,13 +6,13 @@ import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { of, throwError } from 'rxjs';
 import { routes } from 'src/app/app-routing.module';
+import { mockedMember } from 'src/app/shared/model/member';
 import { AngularMaterialModule } from 'src/app/shared/module/material/material.module';
-import { mockedMember } from '../../components/member-create/member-create.component.spec';
 import { MemberService } from '../../service/member.service';
 
 import { MemberAddComponent } from './member-add.component';
 
-describe('MemberAddComponent', () => {
+describe('create member form - child/presentation component', () => {
   let service: MemberService;
   let component: MemberAddComponent;
   let fixture: ComponentFixture<MemberAddComponent>;

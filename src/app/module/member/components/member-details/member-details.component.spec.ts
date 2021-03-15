@@ -12,7 +12,7 @@ import { By } from '@angular/platform-browser';
 import { AngularMaterialModule } from 'src/app/shared/module/material/material.module';
 import { MemberService } from '../../service/member.service';
 
-describe('Update Member Form', () => {
+describe('update member form - parent/smart component', () => {
   let service: MemberService;
   let component: MemberDetailsComponent;
   let fixture: ComponentFixture<MemberDetailsComponent>;
@@ -58,13 +58,13 @@ describe('Update Member Form', () => {
 
   it('should have called update emit', async () => {
     spyOn(window, 'confirm').and.returnValue(true);
-    spyOn(component.update, 'emit');
+    spyOn(component.update, 'emit').and.callThrough();
     fixture.detectChanges();
     component.updateMemberForm();
     expect(component.update.emit).toHaveBeenCalled();
   });
 
-  it('should not call service API on window cancel', async () => {
+  it('should not call service API on update when user clicks window cancel', async () => {
     spyOn(service, 'updateMember').and.returnValue(of(empty()));
     spyOn(window, 'confirm').and.returnValue(false);
     component.updateMemberForm();

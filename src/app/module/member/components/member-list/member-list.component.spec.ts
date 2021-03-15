@@ -5,20 +5,11 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { MemberListComponent } from './member-list.component';
 import { By } from '@angular/platform-browser';
 import { MatTableDataSource } from '@angular/material/table';
-import { Member } from 'src/app/shared/model/member';
+import { Member, mockedMember } from 'src/app/shared/model/member';
 import { AngularMaterialModule } from 'src/app/shared/module/material/material.module';
 import { MemberService } from '../../service/member.service';
 
-export let mockedMember: Member[] = [{
-  id: 1,
-  name: 'testMember1',
-  status: 'Active',
-  dateOfIncorporation: new Date(2021, 1, 15),
-  stockMembershipDate: new Date(2021, 2, 15),
-  totalAssets: 12345678.00
-}];
-
-describe('Members List', () => {
+describe('list members - parent/smart component', () => {
   let service: MemberService;
   let component: MemberListComponent;
   let fixture: ComponentFixture<MemberListComponent>;
@@ -55,7 +46,7 @@ describe('Members List', () => {
     expect(service.deleteMember).toHaveBeenCalledTimes(1);
   }); */
 
-  it('should not call service API on window cancel', async () => {
+  it('should not call service API on delete when user clicks window cancel', async () => {
     spyOn(service, 'deleteMember').and.returnValue(of(empty()));
     spyOn(component, 'setDataSource').and.callThrough();
     spyOn(window, 'confirm').and.returnValue(false);
