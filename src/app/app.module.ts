@@ -15,6 +15,9 @@ import { CurrencyMaskModule } from "ng2-currency-mask";
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { NumericDirective } from './core/directives/numeric.directive';
+import { NgxMaskModule } from 'ngx-mask';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { NumericDirective } from './core/directives/numeric.directive';
   ],
   imports: [
     BrowserModule,
+    NgxMaskModule.forRoot(),
+    ToastrModule.forRoot({positionClass: 'toast-top-center'}),
     AppRoutingModule,
+    NgxSpinnerModule,
     FormsModule,
     ReactiveFormsModule,
     AngularMaterialModule,

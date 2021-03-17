@@ -33,8 +33,7 @@ export class MemberUpdateComponent implements OnInit {
 
   updateMemberForm(memberForm: FormGroup) {
     this.memberService.updateMember(memberForm.value.id, memberForm.value).subscribe(
-      response => {
-        console.log(response);
+      () => {
         this.ngZone.run(() => { this.router.navigate(['/list-members']) });
       },
       error => {

@@ -30,7 +30,8 @@
       <!-- Total Assets -->
       <mat-form-field class="full-width">
         <mat-label>Total Assets</mat-label>
-        <input matInput currencyMask placeholder="Total Assets" id="totalAssets" formControlName="totalAssets"
+        <input matInput mask="separator.2" prefix="$" thousandSeparator="," separatorLimit="1000000000" 
+        placeholder="Total Assets" id="totalAssets" formControlName="totalAssets"
           id="mat-currency">
         <mat-error *ngIf="handleError('totalAssets', 'required')">
           Please provide <strong>Total Assets</strong>

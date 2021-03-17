@@ -16,6 +16,9 @@ import { MemberAddComponent } from './container/member-add/member-add.component'
 import { MemberTableComponent } from './container/member-table/member-table.component';
 import { MemberUpdateComponent } from './container/member-update/member-update.component';
 import { MemberRoutingModule } from './member-routing.module';
+import { NgxMaskModule } from 'ngx-mask';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -27,6 +30,9 @@ import { MemberRoutingModule } from './member-routing.module';
     MemberUpdateComponent
   ],
   imports: [
+    NgxMaskModule.forRoot(),
+    ToastrModule.forRoot({positionClass: 'toast-top-center'}),
+    NgxSpinnerModule,
     MemberRoutingModule,
     BrowserModule,
     FormsModule,

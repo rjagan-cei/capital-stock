@@ -13,7 +13,6 @@ export class MemberService {
 
   constructor(private httpClient: HttpClient) { 
     this.baseURL = environment.memberApiPath;
-    console.log(this.baseURL);
   }
 
   getAllMembers(): Observable<any> {

@@ -10,10 +10,10 @@ import { MemberService } from '../../service/member.service';
   styleUrls: ['./member-add.component.scss']
 })
 export class MemberAddComponent implements OnInit, OnDestroy {
-
   onDestroy$ = new Subject();
 
-  constructor(private formBuilder: FormBuilder, private memberService: MemberService, private ngZone: NgZone, private router: Router) { }
+  constructor(private formBuilder: FormBuilder, private memberService: MemberService, private ngZone: NgZone, private router: Router) {
+  }
 
   ngOnDestroy(): void {
     this.onDestroy$.next();
@@ -38,11 +38,9 @@ export class MemberAddComponent implements OnInit, OnDestroy {
 
   submitMemberForm(memberForm: FormGroup) {
     this.memberService.createMember(memberForm.value)
-      .subscribe(
-        response => {
-          console.log(response);
-          this.ngZone.run(() => { this.router.navigate(['/list-members']) });
-        },
+      .subscribe(() => {
+        this.ngZone.run(() => { this.router.navigate(['/list-members']) });
+      },
         error => {
           this.errorMessage = error;
         });

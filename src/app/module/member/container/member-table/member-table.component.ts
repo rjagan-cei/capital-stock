@@ -23,7 +23,6 @@ export class MemberTableComponent implements OnInit {
     this.memberService.getAllMembers().subscribe(
       response => {
         this.members$ = response;
-        console.log(response);
       },
       error => {
         this.errorMessage = error;
@@ -31,8 +30,7 @@ export class MemberTableComponent implements OnInit {
   }
 
   deleteMember(id: any) {
-    this.memberService.deleteMember(id).subscribe(response => {
-      console.log(response);
+    this.memberService.deleteMember(id).subscribe(() => {
     }, error => { this.errorMessage = error });
   }
 
